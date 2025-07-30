@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-City Permits Dashboard</title>
+</head>
+<body>
+  <h1>Multi-City Permits Dashboard</h1>
+
+  <h2>Stats</h2>
+  <ul>
+    {% for key, value in stats.items() %}
+      <li><strong>{{ key.replace('_', ' ').title() }}:</strong> {{ value }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Recent Permits</h2>
+  <table border="1">
+    <tr>
+      <th>City</th><th>Permit #</th><th>Address</th><th>Contractor</th><th>Valuation</th><th>Date Issued</th>
+    </tr>
+    {% for permit in recent_permits %}
+      <tr>
+        <td>{{ permit.city }}</td>
+        <td>{{ permit.permit_num }}</td>
+        <td>{{ permit.address }}</td>
+        <td>{{ permit.contractor_name }}</td>
+        <td>{{ permit.valuation }}</td>
+        <td>{{ permit.date_issued }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Top Contractors</h2>
+  <table border="1">
+    <tr><th>Name</th><th>Permit Count</th><th>Total Valuation</th></tr>
+    {% for contractor in top_contractors %}
+      <tr>
+        <td>{{ contractor.contractor_name }}</td>
+        <td>{{ contractor.permit_count }}</td>
+        <td>{{ contractor.total_valuation }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Available Cities</h2>
+  <ul>
+    {% for city in cities %}
+      <li><a href="/city/{{ city }}">{{ city }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
