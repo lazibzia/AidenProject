@@ -1,4 +1,0 @@
-Aiden Dashboard main Frontend http://localhost:3000    
-Master Database Backend http://127.0.0.1:8000 
-Client Database Backend http://127.0.0.1:5000 
-Email Backend http://127.0.0.1:5003
